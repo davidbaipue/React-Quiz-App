@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  @apply bg-background text-text text-lg;
+}
+header,
+footer {
+  @apply p-4 text-center bg-secondary;
+}
+.quizBot {
+  @apply text-lg;
+  .title {
+    @apply p-2 border-b-4 border-primary mb-2;
+  }
+  .quiz {
+    max-width: 800px;
+    @apply m-auto;
+    ul {
+      li {
+        @apply p-3 my-2 rounded-md flex gap-2;
+        &:nth-child(2) {
+          @apply bg-primary  rounded-xl p-3;
+        }
+        &:nth-child(odd) {
+          @apply bg-secondary;
+        }
+        &:nth-child(even) {
+          @apply bg-accent;
+        }
+        label {
+          @apply w-full cursor-pointer;
+        }
+        input[type="radio"] {
+          accent-color: #8883c0;
+          @apply cursor-pointer;
+        }
+      }
+    }
+    .btn {
+      @apply bg-primary p-1 rounded-md mr-2;
+    }
+    .next {
+      @apply bg-accent;
+    }
+    strong {
+      @apply p-2;
+    }
+  }
+}
+.bot {
+  @apply bg-secondary h-[300px] w-[300px] rounded-[100%] relative grid place-items-center;
+  div {
+    @apply text-center text-2xl;
+    h1 {
+      @apply p-2 bg-accent my-2 mb-4 rounded-lg;
+    }
+    span {
+      @apply bg-background p-1 rounded-lg hover:cursor-pointer;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
+
+const Timer = ({ time }) => {
+  const [elapsedTime, setElapsedTime] = useState(0);
+  const [percentage, setPercentage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setElapsedTime((prevElapsedTime) => prevElapsedTime + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (time > 0) {
+      const calculatedPercentage = (elapsedTime / time) * 100;
+      setPercentage(calculatedPercentage > 100 ? 100 : calculatedPercentage);
+    }
+  }, [elapsedTime, time]);
+
+  return (
+    <div className="progress">
+      <div
+        className="progress-bar bg-primary"
+        role="progressbar"
+        style={{ width: `${percentage}%` }}
+      >
+        <span>{`${percentage.toFixed(2)}%`}</span>
+      </div>
+    </div>
+  );
+};
+
+Timer.propTypes = {
+  time: PropTypes.number.isRequired,
+};
+
+export default Timer;
+
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
+const Timer = ({ time }) => {
+  const [sec, setSec] = useState(time);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSec((prevSec) => {
+        if (prevSec > 0) {
+          return prevSec - 1;
+        } else {
+          clearInterval(timer);
+          return 0;
+        }
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [time]);
+  return (
+    <div className="progress">
+      <div className="progress-bar bg-primary" role="progressbar">
+        <span></span>
+        <progress value={sec} max={time}></progress>
+      </div>
+    </div>
+  );
+};
+Timer.propTypes = {
+  time: PropTypes.number.isRequired,
+};
+
+export default Timer;
+

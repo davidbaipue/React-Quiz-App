@@ -5,7 +5,6 @@
 :root {
   font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
-
 body {
   @apply bg-background text-text text-lg;
 }
@@ -13,55 +12,79 @@ header,
 footer {
   @apply p-4 text-center bg-secondary;
 }
-.quizBot {
-  @apply text-lg;
-  .title {
-    @apply p-2 border-b-4 border-primary mb-2;
-  }
-  .quiz {
-    max-width: 800px;
-    @apply m-auto;
-    ul {
-      li {
-        @apply p-3 my-2 rounded-md flex gap-2;
-        &:nth-child(2) {
-          @apply bg-primary  rounded-xl p-3;
-        }
-        &:nth-child(odd) {
-          @apply bg-secondary;
-        }
-        &:nth-child(even) {
-          @apply bg-accent;
-        }
-        label {
-          @apply w-full cursor-pointer;
-        }
-        input[type="radio"] {
-          accent-color: #8883c0;
-          @apply cursor-pointer;
+.homeApp {
+  .quizBot {
+    @apply text-lg;
+    .quiz {
+      max-width: 800px;
+      @apply m-auto;
+      ul {
+        li {
+          @apply p-3 my-2 rounded-md flex gap-2;
+          &:nth-child(2) {
+            @apply bg-primary  rounded-xl p-3;
+          }
+          &:nth-child(odd) {
+            @apply bg-secondary;
+          }
+          &:nth-child(even) {
+            @apply bg-accent;
+          }
+          label {
+            @apply w-full cursor-pointer;
+          }
+          input[type="radio"] {
+            accent-color: #8883c0;
+            @apply cursor-pointer;
+          }
         }
       }
-    }
-    .btn {
-      @apply bg-primary p-1 rounded-md mr-2;
-    }
-    .next {
-      @apply bg-accent;
-    }
-    strong {
-      @apply p-2;
+      .btn {
+        @apply bg-primary p-1 rounded-md mr-2;
+      }
+      .next {
+        @apply bg-accent;
+      }
+      strong {
+        @apply p-2;
+      }
     }
   }
-}
-.bot {
-  @apply bg-secondary h-[300px] w-[300px] rounded-[100%] relative grid place-items-center;
-  div {
-    @apply text-center text-2xl;
-    h1 {
-      @apply p-2 bg-accent my-2 mb-4 rounded-lg;
+  .bot {
+    @apply bg-secondary h-[300px] w-[300px] rounded-[100%] relative grid place-items-center;
+    div {
+      @apply text-center text-2xl;
+      h1 {
+        @apply p-2 bg-accent my-2 mb-4 rounded-lg;
+      }
+      span {
+        @apply bg-background p-1 rounded-lg hover:cursor-pointer;
+      }
     }
+  }
+  .title {
+    @apply p-2 border-b-4 border-primary mb-2;
     span {
-      @apply bg-background p-1 rounded-lg hover:cursor-pointer;
+      @apply font-semibold;
+    }
+  }
+  .progress {
+    @apply relative;
+    p {
+      @apply absolute top-0 w-full text-center;
+    }
+    progress {
+      @apply w-full h-7;
+      appearance: none;
+    }
+    progress::-webkit-progress-bar {
+      @apply bg-primary;
+    }
+    progress::-webkit-progress-value {
+      @apply bg-accent;
+    }
+    progress::-moz-progress-bar {
+      @apply bg-accent;
     }
   }
 }
